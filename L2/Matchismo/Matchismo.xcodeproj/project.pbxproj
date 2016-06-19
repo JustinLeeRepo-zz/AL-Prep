@@ -317,6 +317,7 @@
 				D08CA6A81D15214600E42E25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
