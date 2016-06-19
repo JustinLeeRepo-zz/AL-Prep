@@ -7,6 +7,7 @@
 //
 
 #import "CardGameViewController.h"
+#import "PlayingCardDeck.h"
 
 @interface CardGameViewController ()
 //property is weak b/c label is held strongly by view itself
@@ -14,10 +15,24 @@
 //if label ever leaves the view, it will leave the heap and pointer will be set to nil
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
+//Assignment 1 Required Task 3
+@property (strong, nonatomic) Deck *deck;
 
 @end
 
 @implementation CardGameViewController
+
+@synthesize deck = _deck;
+
+- (Deck *)deck
+{
+	//Assignment 1 Required Task 4
+	if (!_deck) {
+		//Assignment 1 Hint 1
+		_deck = [[PlayingCardDeck alloc] init];
+	}
+	return _deck;
+}
 
 - (void)setFlipCount:(int)flipCount
 {
@@ -36,7 +51,15 @@
 	} else {
 		[sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
 						  forState:UIControlStateNormal];
-		[sender setTitle:@"A♣️" forState:UIControlStateNormal];
+		Card *randomDrawnCard = [self.deck drawRandomCard];
+		//Assignment 1 Task 5
+		if(!randomDrawnCard){
+			//Assignment 1 Hint 3
+			self.deck = [[PlayingCardDeck alloc] init];
+			[sender setTitle:[NSString stringWithFormat:@"%@", [self.deck drawRandomCard].contents] forState:UIControlStateNormal];
+		} else {
+			[sender setTitle:[NSString stringWithFormat:@"%@", randomDrawnCard.contents] forState:UIControlStateNormal];
+		}
 	}
 	self.flipCount++;
 }
