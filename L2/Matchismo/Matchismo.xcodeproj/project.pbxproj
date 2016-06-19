@@ -16,6 +16,7 @@
 		D08CA6AB1D153FF500E42E25 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = D08CA6AA1D153FF500E42E25 /* Card.m */; };
 		D09695661D16F548001C33CD /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = D09695651D16F548001C33CD /* Deck.m */; };
 		D09695691D16F8B7001C33CD /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D09695681D16F8B7001C33CD /* PlayingCard.m */; };
+		D096956C1D16F9CB001C33CD /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = D096956B1D16F9CB001C33CD /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		D09695651D16F548001C33CD /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
 		D09695671D16F8B7001C33CD /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
 		D09695681D16F8B7001C33CD /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
+		D096956A1D16F9CB001C33CD /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
+		D096956B1D16F9CB001C33CD /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				D09695651D16F548001C33CD /* Deck.m */,
 				D09695671D16F8B7001C33CD /* PlayingCard.h */,
 				D09695681D16F8B7001C33CD /* PlayingCard.m */,
+				D096956A1D16F9CB001C33CD /* PlayingCardDeck.h */,
+				D096956B1D16F9CB001C33CD /* PlayingCardDeck.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				D09695661D16F548001C33CD /* Deck.m in Sources */,
 				D08CA69A1D15214600E42E25 /* CardGameViewController.m in Sources */,
 				D08CA6971D15214600E42E25 /* CardGameAppDelegate.m in Sources */,
+				D096956C1D16F9CB001C33CD /* PlayingCardDeck.m in Sources */,
 				D08CA6941D15214600E42E25 /* main.m in Sources */,
 				D08CA6AB1D153FF500E42E25 /* Card.m in Sources */,
 			);
