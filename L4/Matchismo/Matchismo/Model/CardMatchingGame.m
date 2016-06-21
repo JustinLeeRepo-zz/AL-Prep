@@ -66,20 +66,36 @@ static const int COST_TO_CHOOSE = 1;
 			card.chosen = NO;
 		} else {
 			//match against other chosen cards
+			
+			self.state = [NSMutableString stringWithFormat:@"%@", card.contents];
+			NSMutableArray *chosenCards = [[NSMutableArray alloc] init];
 			for (Card *otherCard in self.cards) {
 				if (otherCard.isChosen && !otherCard.isMatched) {
-					int matchScore = [card match:@[otherCard]];
-					if (matchScore) {
-						self.score += matchScore * MATCH_BONUS;
-						card.matched = YES;
-						otherCard.matched = YES;
-					} else {
-						self.score -= MISMATCH_PENALTY;
-						otherCard.chosen = NO;
-					}
-					break;
+					[chosenCards addObject:otherCard];
+					[self.state	appendString:otherCard.contents];
 				}
 			}
+			
+			if ([chosenCards count] == self.mode + 1) {
+					
+				int matchScore = [card match:chosenCards];
+				if (matchScore) {
+					self.score += matchScore * MATCH_BONUS;
+					card.matched = YES;
+					for (Card *chosenCard in chosenCards) {
+						chosenCard.matched = YES;
+					}
+					[self.state appendString:[NSString stringWithFormat:@" matches for %d points", matchScore]];
+				} else {
+					self.score -= MISMATCH_PENALTY;
+					for (Card *chosenCard in chosenCards) {
+						chosenCard.chosen = NO;
+					}
+					[self.state appendString: [NSString stringWithFormat:@" mismatch for %d penalty points", MISMATCH_PENALTY]];
+				}
+			}
+			
+
 			self.score -= COST_TO_CHOOSE;
 			card.chosen = YES;
 		}

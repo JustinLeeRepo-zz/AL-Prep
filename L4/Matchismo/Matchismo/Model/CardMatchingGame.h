@@ -12,7 +12,10 @@
 @interface CardMatchingGame : NSObject
 
 //readonly so no public setter method
-@property (nonatomic,readonly) NSInteger score;
+@property (nonatomic, readonly) NSInteger score;
+//readwrite and assign default
+@property (nonatomic) NSInteger mode;
+@property (nonatomic, strong) NSMutableString *state;
 
 //designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
