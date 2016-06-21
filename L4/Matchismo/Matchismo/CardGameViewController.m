@@ -12,23 +12,13 @@
 
 @interface CardGameViewController ()
 
-//property is weak b/c label is held strongly by view itself
-//view will keep the label in the heap, so no strong pointer is necessary to keep in label in heap
-//if label ever leaves the view, it will leave the heap and pointer will be set to nil
-//Assignment 1 Required Task 3
-@property (strong, nonatomic) Deck *deck;
 @property (nonatomic, strong) CardMatchingGame *game;
-
-//has to be strong b/c view doesn't have strong pointer to this array, but has strong pointer to all the buttons individually
-//if not strong, this will constantly be set to 0, b/c no one would have a strong pointer to it
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
 @implementation CardGameViewController
-
-@synthesize deck = _deck;
 
 - (CardMatchingGame *)game
 {
@@ -41,6 +31,13 @@
 - (Deck *)createDeck
 {
 	return [[PlayingCardDeck alloc] init];
+}
+
+//Assignment 2 Task 2
+- (IBAction)touchNewGameButton:(UIButton *)sender {
+	self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+	[self updateUI];
+	
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
