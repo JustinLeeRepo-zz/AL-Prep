@@ -6,13 +6,13 @@
 //  Copyright © 2016 Justin Lee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AttributorViewController.h"
 
-@interface ViewController ()
+@interface AttributorViewController ()
 
 @end
 
-@implementation ViewController
+@implementation AttributorViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
