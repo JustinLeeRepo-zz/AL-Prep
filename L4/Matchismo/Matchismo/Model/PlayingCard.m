@@ -14,16 +14,30 @@
 {
 	int score = 0;
 	
-	if ([otherCards count] == 1) {
-		id card = [otherCards firstObject];
-		if ([card isKindOfClass:[PlayingCard class]]) {			
-			PlayingCard *otherCard = (PlayingCard *)card;
+	if ([otherCards count] >= 1) {
+		//first comparison
+		for (PlayingCard *otherCard in otherCards) {
 			if (otherCard.rank == self.rank) {
-				score = 4;
+				score += 4;
 			} else  if ([otherCard.suit isEqualToString:self.suit]) {
-				score = 1;
+				score += 1;
 			}
 		}
+		
+		//remove first object of others and continue comparing until empty array
+		NSMutableArray *otherCardsCopy = [otherCards mutableCopy];
+		for (PlayingCard *otherCard in otherCards) {
+			[otherCardsCopy removeObject:otherCard];
+			for (PlayingCard *remaingingCard in otherCardsCopy) {
+				if (remaingingCard.rank == otherCard.rank) {
+					score += 4;
+				} else  if ([otherCard.suit isEqualToString:remaingingCard.suit]) {
+					score += 1;
+				}
+			}
+		}
+		
+		
 	}
 	
 	return score;
