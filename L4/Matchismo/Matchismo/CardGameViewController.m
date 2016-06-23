@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
+@property (nonatomic, strong) NSMutableArray *flipHistory;
+@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
 @end
 
@@ -30,14 +32,33 @@
 	return _game;
 }
 
+- (NSMutableArray *)flipHistory
+{
+	if (!_flipHistory) {
+		_flipHistory = [[NSMutableArray alloc] init];
+	}
+	return _flipHistory;
+}
+
 - (Deck *)createDeck
 {
 	return [[PlayingCardDeck alloc] init];
+}
+- (IBAction)changeHistorySlider:(UISlider *)sender
+{
+	int sliderValue = lroundf(sender.value);
+	[sender setValue:sliderValue animated:NO];
+	if ([self.flipHistory count]) {
+		self.stateLabel.alpha = (sliderValue + 1 < [self.flipHistory count]) ? 0.5 : 1.0;
+		self.stateLabel.text = [self.flipHistory objectAtIndex:sliderValue];
+	}
+	
 }
 
 //Assignment 2 Task 2
 - (IBAction)touchReDealButton:(UIButton *)sender {
 	self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+	self.flipHistory = nil;
 	self.game.mode = self.modeSegmentedControl.selectedSegmentIndex;
 	//Assignment 2 Task 4
 	self.modeSegmentedControl.enabled = YES;
@@ -80,6 +101,14 @@
 	
 	self.stateLabel.text = state;
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+	[self.flipHistory addObject:state];
+	[self setSliderRange];
+}
+
+- (void)setSliderRange
+{
+	self.historySlider.maximumValue = [self.flipHistory count] - 1;
+	[self.historySlider setValue:self.historySlider.maximumValue animated:YES];
 }
 
 - (NSString *)titleForCard:(Card *)card
