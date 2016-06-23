@@ -15,7 +15,8 @@
 @property (nonatomic, readonly) NSInteger score;
 //readwrite and assign default
 @property (nonatomic) NSInteger mode;
-@property (nonatomic, strong) NSMutableString *state;
+@property (nonatomic, readonly) NSArray *lastChosenCards;
+@property (nonatomic, readonly) NSInteger lastScore;
 
 //designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;

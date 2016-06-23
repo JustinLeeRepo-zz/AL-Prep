@@ -15,7 +15,10 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
+@property (nonatomic, strong) NSMutableArray *flipHistory;
+@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
 @end
 
@@ -29,14 +32,33 @@
 	return _game;
 }
 
+- (NSMutableArray *)flipHistory
+{
+	if (!_flipHistory) {
+		_flipHistory = [[NSMutableArray alloc] init];
+	}
+	return _flipHistory;
+}
+
 - (Deck *)createDeck
 {
 	return [[PlayingCardDeck alloc] init];
+}
+- (IBAction)changeHistorySlider:(UISlider *)sender
+{
+	int sliderValue = lroundf(sender.value);
+	[sender setValue:sliderValue animated:NO];
+	if ([self.flipHistory count]) {
+		self.stateLabel.alpha = (sliderValue + 1 < [self.flipHistory count]) ? 0.5 : 1.0;
+		self.stateLabel.text = [self.flipHistory objectAtIndex:sliderValue];
+	}
+	
 }
 
 //Assignment 2 Task 2
 - (IBAction)touchReDealButton:(UIButton *)sender {
 	self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+	self.flipHistory = nil;
 	self.game.mode = self.modeSegmentedControl.selectedSegmentIndex;
 	//Assignment 2 Task 4
 	self.modeSegmentedControl.enabled = YES;
@@ -67,7 +89,26 @@
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
-	self.scoreLabel.text = self.game.state;
+	NSMutableArray *contentStrings = [[NSMutableArray alloc] init];
+	for (Card *card in self.game.lastChosenCards) {
+		[contentStrings addObject:card.contents];
+	}
+	NSMutableString *state = [[contentStrings componentsJoinedByString:@" "] mutableCopy];
+	if (self.game.lastScore != 0) {
+		NSString *pointString = self.game.lastScore > 0 ? [NSString stringWithFormat:@" matches for %d points", self.game.lastScore] : [NSString stringWithFormat:@" mismatch for %d penalty points", self.game.lastScore];
+		[state appendString:pointString];
+	}
+	
+	self.stateLabel.text = state;
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+	[self.flipHistory addObject:state];
+	[self setSliderRange];
+}
+
+- (void)setSliderRange
+{
+	self.historySlider.maximumValue = [self.flipHistory count] - 1;
+	[self.historySlider setValue:self.historySlider.maximumValue animated:YES];
 }
 
 - (NSString *)titleForCard:(Card *)card
