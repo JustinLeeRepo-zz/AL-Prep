@@ -27,6 +27,13 @@
 	return _cards;
 }
 
+- (NSInteger)mode
+{
+	Card *card = [self.cards firstObject];
+	_mode = card.numOfCardsToMatch;
+	return _mode;
+}
+
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck
 {
 	self = [super init];
@@ -69,19 +76,16 @@ static const int COST_TO_CHOOSE = 1;
 		} else {
 			//match against other chosen cards
 			
-
-//			self.state = [NSMutableString stringWithFormat:@"%@", card.contents];
 			NSMutableArray *chosenCards = [[NSMutableArray alloc] init];
 			for (Card *otherCard in self.cards) {
 				if (otherCard.isChosen && !otherCard.isMatched) {
 					[chosenCards addObject:otherCard];
-//					[self.state	appendString:otherCard.contents];
 				}
 			}
 			self.lastScore = 0;
 			self.lastChosenCards = [chosenCards arrayByAddingObject:card];
 			
-			if ([chosenCards count] == self.mode + 1) {
+			if ([chosenCards count] == self.mode - 1) {
 					
 				int matchScore = [card match:chosenCards];
 				if (matchScore) {
@@ -90,13 +94,11 @@ static const int COST_TO_CHOOSE = 1;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.matched = YES;
 					}
-//					[self.state appendString:[NSString stringWithFormat:@" matches for %d points", matchScore * MATCH_BONUS]];
 				} else {
 					self.lastScore -= MISMATCH_PENALTY;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.chosen = NO;
 					}
-//					[self.state appendString: [NSString stringWithFormat:@" mismatch for %d penalty points", MISMATCH_PENALTY]];
 				}
 			}
 			

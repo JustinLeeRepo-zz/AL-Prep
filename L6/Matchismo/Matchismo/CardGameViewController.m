@@ -15,7 +15,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
+//Assignment 2 Task 4
+//@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
 @property (nonatomic, strong) NSMutableArray *flipHistory;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
@@ -58,9 +59,8 @@
 - (IBAction)touchReDealButton:(UIButton *)sender {
 	self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
 	self.flipHistory = nil;
-	self.game.mode = self.modeSegmentedControl.selectedSegmentIndex;
 	//Assignment 2 Task 4
-	self.modeSegmentedControl.enabled = YES;
+//	self.modeSegmentedControl.enabled = YES;
 	[self updateUI];
 	
 }
@@ -70,11 +70,12 @@
 	self.game.mode = sender.selectedSegmentIndex;
 }
 
+
 - (IBAction)touchCardButton:(UIButton *)sender
 {
 	int cardIndex = [self.cardButtons indexOfObject:sender];
 	//Assignment 2 Task 4
-	self.modeSegmentedControl.enabled = NO;
+//	self.modeSegmentedControl.enabled = NO;
 	[self.game chooseCardAtIndex:cardIndex];
 	[self updateUI];
 }

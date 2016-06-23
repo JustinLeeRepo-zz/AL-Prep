@@ -14,6 +14,14 @@
 
 @implementation Card
 
+- (NSUInteger)numOfCardsToMatch
+{
+	if (!_numOfCardsToMatch) {
+		_numOfCardsToMatch = 2;
+	}
+	return _numOfCardsToMatch;
+}
+
 - (int)match:(NSArray *)otherCards
 {
 	int score = 0;
