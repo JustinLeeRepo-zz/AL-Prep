@@ -68,8 +68,18 @@
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
-	self.stateLabel.text = self.game.state;
-	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.game.score];
+	NSMutableArray *contentStrings = [[NSMutableArray alloc] init];
+	for (Card *card in self.game.lastChosenCards) {
+		[contentStrings addObject:card.contents];
+	}
+	NSMutableString *state = [[contentStrings componentsJoinedByString:@" "] mutableCopy];
+	if (self.game.lastScore != 0) {
+		NSString *pointString = self.game.lastScore > 0 ? [NSString stringWithFormat:@" matches for %d points", self.game.lastScore] : [NSString stringWithFormat:@" mismatch for %d penalty points", self.game.lastScore];
+		[state appendString:pointString];
+	}
+	
+	self.stateLabel.text = state;
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
 }
 
 - (NSString *)titleForCard:(Card *)card

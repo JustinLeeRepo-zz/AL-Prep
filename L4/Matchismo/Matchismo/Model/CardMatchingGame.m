@@ -12,6 +12,8 @@
 
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards; //of Card
+@property (nonatomic, strong) NSArray *lastChosenCards;
+@property (nonatomic, readwrite) NSInteger lastScore;
 
 @end
 
@@ -67,36 +69,38 @@ static const int COST_TO_CHOOSE = 1;
 		} else {
 			//match against other chosen cards
 			
-			self.state = [NSMutableString stringWithFormat:@"%@", card.contents];
+
+//			self.state = [NSMutableString stringWithFormat:@"%@", card.contents];
 			NSMutableArray *chosenCards = [[NSMutableArray alloc] init];
 			for (Card *otherCard in self.cards) {
 				if (otherCard.isChosen && !otherCard.isMatched) {
 					[chosenCards addObject:otherCard];
-					[self.state	appendString:otherCard.contents];
+//					[self.state	appendString:otherCard.contents];
 				}
 			}
+			self.lastScore = 0;
+			self.lastChosenCards = [chosenCards arrayByAddingObject:card];
 			
 			if ([chosenCards count] == self.mode + 1) {
 					
 				int matchScore = [card match:chosenCards];
 				if (matchScore) {
-					self.score += matchScore * MATCH_BONUS;
+					self.lastScore += matchScore * MATCH_BONUS;
 					card.matched = YES;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.matched = YES;
 					}
-					[self.state appendString:[NSString stringWithFormat:@" matches for %d points", matchScore * MATCH_BONUS]];
+//					[self.state appendString:[NSString stringWithFormat:@" matches for %d points", matchScore * MATCH_BONUS]];
 				} else {
-					self.score -= MISMATCH_PENALTY;
+					self.lastScore -= MISMATCH_PENALTY;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.chosen = NO;
 					}
-					[self.state appendString: [NSString stringWithFormat:@" mismatch for %d penalty points", MISMATCH_PENALTY]];
+//					[self.state appendString: [NSString stringWithFormat:@" mismatch for %d penalty points", MISMATCH_PENALTY]];
 				}
 			}
 			
-
-			self.score -= COST_TO_CHOOSE;
+			self.score += self.lastScore - COST_TO_CHOOSE;
 			card.chosen = YES;
 		}
 	}
