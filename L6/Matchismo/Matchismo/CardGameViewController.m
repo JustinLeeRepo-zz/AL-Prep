@@ -95,7 +95,7 @@
 	}
 	NSMutableString *state = [[contentStrings componentsJoinedByString:@" "] mutableCopy];
 	if (self.game.lastScore != 0) {
-		NSString *pointString = self.game.lastScore > 0 ? [NSString stringWithFormat:@" matches for %d points", self.game.lastScore] : [NSString stringWithFormat:@" mismatch for %d penalty points", self.game.lastScore];
+		NSString *pointString = self.game.lastScore > 0 ? [NSString stringWithFormat:@" matches for %d points", self.game.lastScore] : [NSString stringWithFormat:@" mismatch for %d points", self.game.lastScore];
 		[state appendString:pointString];
 	}
 	

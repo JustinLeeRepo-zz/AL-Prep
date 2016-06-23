@@ -35,7 +35,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="6WO-eg-9Mj"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MC1-gQ-37k"/>
                         <segue destination="793-IE-G1J" kind="relationship" relationship="viewControllers" id="wkg-EU-co0"/>
                     </connections>
                 </tabBarController>
@@ -355,42 +355,32 @@
                                     <action selector="touchCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zeu-Hb-jBf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ4-aR-one">
+                                <rect key="frame" x="20" y="360" width="184" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-7w-RZO">
+                                <rect key="frame" x="212" y="364" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="3Pc-KU-BSO">
+                                <rect key="frame" x="18" y="398" width="188" height="31"/>
+                                <connections>
+                                    <action selector="changeHistorySlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="vCh-q1-qUA"/>
+                                </connections>
+                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54r-Ac-NtG">
-                                <rect key="frame" x="228" y="439" width="72" height="30"/>
+                                <rect key="frame" x="212" y="398" width="88" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Re-Deal"/>
                                 <connections>
                                     <action selector="touchReDealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cD9-zU-7Pz"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eDd-EZ-XdE">
-                                <rect key="frame" x="116" y="440" width="88" height="29"/>
-                                <segments>
-                                    <segment title="Two"/>
-                                    <segment title="Three"/>
-                                </segments>
-                                <connections>
-                                    <action selector="gameModeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="wc3-u9-9hH"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ4-aR-one">
-                                <rect key="frame" x="20" y="360" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-7w-RZO">
-                                <rect key="frame" x="20" y="443" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="3Pc-KU-BSO">
-                                <rect key="frame" x="18" y="398" width="284" height="31"/>
-                                <connections>
-                                    <action selector="changeHistorySlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="vCh-q1-qUA"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -398,7 +388,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="historySlider" destination="3Pc-KU-BSO" id="RLA-JG-Qdq"/>
-                        <outlet property="modeSegmentedControl" destination="eDd-EZ-XdE" id="rBe-L4-U2G"/>
                         <outlet property="scoreLabel" destination="B7Q-7w-RZO" id="b2i-B9-MhH"/>
                         <outlet property="stateLabel" destination="nQ4-aR-one" id="d7R-NY-1DQ"/>
                         <outletCollection property="cardButtons" destination="bO3-dO-P9U" id="EtO-D4-pAQ"/>
