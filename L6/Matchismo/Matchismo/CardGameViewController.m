@@ -7,7 +7,6 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
@@ -40,9 +39,9 @@
 	return _flipHistory;
 }
 
-- (Deck *)createDeck
+- (Deck *)createDeck //abstract
 {
-	return [[PlayingCardDeck alloc] init];
+	return nil	;
 }
 - (IBAction)changeHistorySlider:(UISlider *)sender
 {
