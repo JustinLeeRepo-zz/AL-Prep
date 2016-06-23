@@ -318,18 +318,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54r-Ac-NtG">
-                                <rect key="frame" x="212" y="439" width="91" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="228" y="439" width="72" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Re-Deal"/>
                                 <connections>
                                     <action selector="touchReDealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cD9-zU-7Pz"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eDd-EZ-XdE">
-                                <rect key="frame" x="20" y="440" width="173" height="29"/>
+                                <rect key="frame" x="116" y="440" width="88" height="29"/>
                                 <segments>
-                                    <segment title="Two-Card"/>
-                                    <segment title="Three-Card"/>
+                                    <segment title="Two"/>
+                                    <segment title="Three"/>
                                 </segments>
                                 <connections>
                                     <action selector="gameModeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="wc3-u9-9hH"/>
@@ -341,13 +341,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-7w-RZO">
+                                <rect key="frame" x="20" y="443" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="modeSegmentedControl" destination="eDd-EZ-XdE" id="rBe-L4-U2G"/>
-                        <outlet property="scoreLabel" destination="nQ4-aR-one" id="Jwv-Vg-2uQ"/>
+                        <outlet property="scoreLabel" destination="B7Q-7w-RZO" id="b2i-B9-MhH"/>
+                        <outlet property="stateLabel" destination="nQ4-aR-one" id="d7R-NY-1DQ"/>
                         <outletCollection property="cardButtons" destination="bO3-dO-P9U" id="EtO-D4-pAQ"/>
                         <outletCollection property="cardButtons" destination="NLF-9R-YgS" id="Cl5-eX-Faq"/>
                         <outletCollection property="cardButtons" destination="ad1-eS-RBh" id="odX-kL-Dip"/>

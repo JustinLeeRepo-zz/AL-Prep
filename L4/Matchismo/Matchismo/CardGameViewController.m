@@ -15,6 +15,7 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
 
 @end
@@ -67,7 +68,8 @@
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
-	self.scoreLabel.text = self.game.state;
+	self.stateLabel.text = self.game.state;
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.game.score];
 }
 
 - (NSString *)titleForCard:(Card *)card

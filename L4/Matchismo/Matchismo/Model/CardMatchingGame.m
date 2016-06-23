@@ -85,7 +85,7 @@ static const int COST_TO_CHOOSE = 1;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.matched = YES;
 					}
-					[self.state appendString:[NSString stringWithFormat:@" matches for %d points", matchScore]];
+					[self.state appendString:[NSString stringWithFormat:@" matches for %d points", matchScore * MATCH_BONUS]];
 				} else {
 					self.score -= MISMATCH_PENALTY;
 					for (Card *chosenCard in chosenCards) {
