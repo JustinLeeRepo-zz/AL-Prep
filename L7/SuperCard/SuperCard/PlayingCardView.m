@@ -74,6 +74,11 @@
 	textBounds.origin = CGPointMake([self cornerOffset], [self cornerOffset]);
 	textBounds.size	= [cornerText size];
 	[cornerText drawInRect:textBounds];
+	
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextTranslateCTM(context, self.bounds.size.width, self.bounds.size.height);
+	CGContextRotateCTM(context, M_PI);
+	[cornerText drawInRect:textBounds];
 }
 
 #pragma mark - Initalization
