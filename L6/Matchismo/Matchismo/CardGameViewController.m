@@ -89,17 +89,18 @@
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
-	NSMutableArray *contentStrings = [[NSMutableArray alloc] init];
+	NSMutableAttributedString *state = [[NSMutableAttributedString alloc] init];
 	for (Card *card in self.game.lastChosenCards) {
-		[contentStrings addObject:card.contents];
+		[state appendAttributedString:[self titleForCard:card]];
+		[state appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
 	}
-	NSMutableString *state = [[contentStrings componentsJoinedByString:@" "] mutableCopy];
 	if (self.game.lastScore != 0) {
-		NSString *pointString = self.game.lastScore > 0 ? [NSString stringWithFormat:@" matches for %d points", self.game.lastScore] : [NSString stringWithFormat:@" mismatch for %d points", self.game.lastScore];
-		[state appendString:pointString];
+		NSString *pointString = self.game.lastScore > 0 ? [NSString stringWithFormat:@"matches for %d points", self.game.lastScore] : [NSString stringWithFormat:@"mismatch for %d points", self.game.lastScore];
+		NSAttributedString *pointAttributedString = [[NSAttributedString alloc] initWithString:pointString];
+		[state appendAttributedString:pointAttributedString];
 	}
 	
-	self.stateLabel.text = state;
+	[self.stateLabel setAttributedText:state];
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
 	[self.flipHistory addObject:state];
 	[self setSliderRange];
@@ -111,13 +112,12 @@
 	[self.historySlider setValue:self.historySlider.maximumValue animated:YES];
 }
 
-- (NSAttributedString *)titleForCard:(Card *)card
+- (NSAttributedString *)titleForCard:(Card *)card // abstract
 {
-	NSAttributedString *title = [[NSAttributedString alloc] initWithString:card.isChosen ? card.contents : @""];
 	return nil;
 }
 
-- (UIImage *)backgroundImageForCard:(Card *)card
+- (UIImage *)backgroundImageForCard:(Card *)card // abstract
 {
 	return nil;
 }

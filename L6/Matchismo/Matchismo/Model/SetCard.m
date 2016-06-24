@@ -14,7 +14,7 @@
 
 - (NSString *)contents
 {
-	return [NSString stringWithFormat:@"%@%@%@%d", self.color, self.symbol, self.shading, self.number];
+	return [NSString stringWithFormat:@"%@ %@ %@ %d", self.color, self.symbol, self.shading, self.number];
 }
 
 - (NSString *)color
@@ -43,7 +43,7 @@
 
 - (NSString *)shading
 {
-	return _symbol ?: @"?";
+	return _shading ?: @"?";
 }
 
 - (void)setShading:(NSString *)shading

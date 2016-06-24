@@ -13,12 +13,13 @@
 
 @interface CardGameViewController : UIViewController
 
-- (NSAttributedString *)titleForCard:(Card *)card;
-- (UIImage *)backgroundImageForCard:(Card *)card;
+- (void)updateUI;
 
 // protected
 // for subclasses
-- (Deck *)createDeck; //abstract
+- (Deck *)createDeck; // abstract
+- (NSAttributedString *)titleForCard:(Card *)card; // abstract
+- (UIImage *)backgroundImageForCard:(Card *)card; // abstract
 
 @end
 

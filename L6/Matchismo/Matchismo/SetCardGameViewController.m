@@ -71,6 +71,12 @@
 	return [UIImage imageNamed:card.chosen? @"selectedSetCard" : @"setCard"];
 }
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	[self updateUI];
+}
+
 /*
 #pragma mark - Navigation
 
