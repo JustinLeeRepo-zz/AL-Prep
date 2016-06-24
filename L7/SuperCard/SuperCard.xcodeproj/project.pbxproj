@@ -13,6 +13,7 @@
 		D04344451D1DA96D006BFEEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04344431D1DA96D006BFEEC /* Main.storyboard */; };
 		D04344471D1DA96D006BFEEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D04344461D1DA96D006BFEEC /* Assets.xcassets */; };
 		D043444A1D1DA96D006BFEEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04344481D1DA96D006BFEEC /* LaunchScreen.storyboard */; };
+		D04344531D1DAA77006BFEEC /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = D04344521D1DAA77006BFEEC /* PlayingCardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D04344461D1DA96D006BFEEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D04344491D1DA96D006BFEEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D043444B1D1DA96D006BFEEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D04344511D1DAA77006BFEEC /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
+		D04344521D1DAA77006BFEEC /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				D04344401D1DA96D006BFEEC /* ViewController.h */,
 				D04344411D1DA96D006BFEEC /* ViewController.m */,
 				D04344431D1DA96D006BFEEC /* Main.storyboard */,
+				D04344511D1DAA77006BFEEC /* PlayingCardView.h */,
+				D04344521D1DAA77006BFEEC /* PlayingCardView.m */,
 				D04344461D1DA96D006BFEEC /* Assets.xcassets */,
 				D04344481D1DA96D006BFEEC /* LaunchScreen.storyboard */,
 				D043444B1D1DA96D006BFEEC /* Info.plist */,
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04344421D1DA96D006BFEEC /* ViewController.m in Sources */,
+				D04344531D1DAA77006BFEEC /* PlayingCardView.m in Sources */,
 				D043443F1D1DA96D006BFEEC /* AppDelegate.m in Sources */,
 				D043443C1D1DA96D006BFEEC /* main.m in Sources */,
 			);
