@@ -8,6 +8,7 @@
 
 #import "SetCardGameViewController.h"
 #import "SetCardDeck.h"
+#import "SetCard.h"
 
 @interface SetCardGameViewController ()
 
@@ -18,6 +19,56 @@
 - (Deck *)createDeck
 {
 	return [[SetCardDeck alloc] init];
+}
+
+- (NSAttributedString *)titleForCard:(Card *)card
+{
+	//should only have setcards in this controller
+	SetCard *setCard = (SetCard *)card;
+	NSString *symbol = [self symbolForCard:setCard];
+	UIColor *color = [self colorForCard:setCard];
+	NSDictionary *attributes = [self attributesForCard:setCard withColor:color];
+	return [[NSAttributedString alloc] initWithString:symbol attributes:attributes];
+}
+
+- (NSString *)symbolForCard:(SetCard *)setCard
+{
+	NSString *symbol = @"";
+	if ([setCard.symbol isEqualToString:@"oval"]) symbol = @"●";
+	else if ([setCard.symbol isEqualToString:@"squiggle"]) symbol = @"▲";
+	else if ([setCard.symbol isEqualToString:@"diamond"]) symbol = @"■";
+	symbol = [symbol stringByPaddingToLength:setCard.number withString:symbol startingAtIndex:0];
+	return symbol;
+}
+
+- (UIColor *)colorForCard:(SetCard *)setCard
+{
+	UIColor *color;
+	if ([setCard.color isEqualToString:@"red"]) color = [UIColor redColor];
+	else if ([setCard.color isEqualToString:@"green"]) color = [UIColor greenColor];
+	else if ([setCard.color isEqualToString:@"purple"]) color = [UIColor purpleColor];
+	return color;
+}
+
+- (NSDictionary *)attributesForCard:(SetCard *)setCard withColor:(UIColor *)color
+{
+	NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+	[attributes setObject:color forKey:NSForegroundColorAttributeName];
+	if ([setCard.shading isEqualToString:@"solid"]) {
+		[attributes setObject:@-5 forKey:NSStrokeWidthAttributeName];
+	} else if ([setCard.shading isEqualToString:@"striped"]) {
+		[attributes addEntriesFromDictionary:@{NSStrokeWidthAttributeName: @-5,
+											   NSStrokeColorAttributeName: color,
+											   NSForegroundColorAttributeName: [color colorWithAlphaComponent:0.3]}];
+	} else if ([setCard.shading isEqualToString:@"open"]) {
+		[attributes setObject:@5 forKey:NSStrokeWidthAttributeName];
+	}
+	return attributes;
+}
+
+- (UIImage *)backgroundImageForCard:(Card *)card
+{
+	return [UIImage imageNamed:card.chosen? @"selectedSetCard" : @"setCard"];
 }
 
 /*

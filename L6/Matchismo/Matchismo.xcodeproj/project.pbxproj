@@ -86,9 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				D08CA6981D15214600E42E25 /* CardGameViewController.h */,
+				D08CA6991D15214600E42E25 /* CardGameViewController.m */,
 				D003F6C21D1C84CC00BE872A /* PlayingCardGameViewController.h */,
 				D003F6C31D1C84CC00BE872A /* PlayingCardGameViewController.m */,
-				D08CA6991D15214600E42E25 /* CardGameViewController.m */,
 				D003F6BF1D1C808C00BE872A /* SetCardGameViewController.h */,
 				D003F6C01D1C808C00BE872A /* SetCardGameViewController.m */,
 				D08CA69B1D15214600E42E25 /* Main.storyboard */,

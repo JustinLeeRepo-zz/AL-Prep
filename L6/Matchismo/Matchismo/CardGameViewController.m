@@ -85,7 +85,7 @@
 	for (UIButton *cardButton in self.cardButtons) {
 		int cardIndex = [self.cardButtons indexOfObject:cardButton];
 		Card *card = [self.game cardAtIndex:cardIndex];
-		[cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+		[cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
@@ -111,14 +111,15 @@
 	[self.historySlider setValue:self.historySlider.maximumValue animated:YES];
 }
 
-- (NSString *)titleForCard:(Card *)card
+- (NSAttributedString *)titleForCard:(Card *)card
 {
-	return card.isChosen ? card.contents : @"";
+	NSAttributedString *title = [[NSAttributedString alloc] initWithString:card.isChosen ? card.contents : @""];
+	return nil;
 }
 
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
-	return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
+	return nil;
 }
 
 @end
