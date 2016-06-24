@@ -8,6 +8,7 @@
 
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
+#import "HistoryViewController.h"
 
 @interface CardGameViewController ()
 
@@ -120,6 +121,16 @@
 - (UIImage *)backgroundImageForCard:(Card *)card // abstract
 {
 	return nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"Show History"]) {
+		if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+			HistoryViewController *historyViewController = (HistoryViewController *)segue.destinationViewController;
+			historyViewController.historyArray = [self.flipHistory copy];
+		}
+	}
 }
 
 @end
