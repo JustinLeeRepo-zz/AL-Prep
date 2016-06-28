@@ -6,7 +6,7 @@
 //  Copyright © 2016 Justin Lee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DropitViewController.h"
 
 @interface DropitViewController ()
 
