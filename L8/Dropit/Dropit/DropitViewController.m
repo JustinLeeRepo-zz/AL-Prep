@@ -7,12 +7,12 @@
 //
 
 #import "DropitViewController.h"
+#import "DropitBehavior.h"
 
 @interface DropitViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
-@property (nonatomic, strong) UIGravityBehavior *gravity;
-@property (nonatomic, strong) UICollisionBehavior *collider;
+@property (nonatomic, strong) DropitBehavior *dropitBehavior;
 
 @end
 
@@ -24,24 +24,13 @@
 	return _animator;
 }
 
-- (UIGravityBehavior *)gravity
+- (DropitBehavior *)dropitBehavior
 {
-	if (!_gravity) {
-		_gravity = [[UIGravityBehavior alloc] init];
-		_gravity.magnitude = 0.9;
-		[self.animator addBehavior:_gravity];
+	if (!_dropitBehavior) {
+		_dropitBehavior = [[DropitBehavior alloc] init];
+		[self.animator addBehavior:_dropitBehavior];
 	}
-	return _gravity;
-}
-
-- (UICollisionBehavior *)collider
-{
-	if (!_collider) {
-		_collider = [[UICollisionBehavior alloc] init];
-		_collider.translatesReferenceBoundsIntoBoundary = YES;
-		[self.animator addBehavior:_collider];
-	}
-	return _collider;
+	return _dropitBehavior;
 }
 
 static const CGSize DROP_SIZE = { 40, 40 };
@@ -64,8 +53,7 @@ static const CGSize DROP_SIZE = { 40, 40 };
 	
 	[self.gameView addSubview:dropView];
 	
-	[self.gravity addItem:dropView];
-	[self.collider addItem:dropView];
+	[self.dropitBehavior addItem:dropView];
 	
 }
 
