@@ -58,8 +58,6 @@
 		D02E47601D222FCF008D22F0 /* Dropit */ = {
 			isa = PBXGroup;
 			children = (
-				D02E47641D222FCF008D22F0 /* DropitAppDelegate.h */,
-				D02E47651D222FCF008D22F0 /* DropitAppDelegate.m */,
 				D02E47671D222FCF008D22F0 /* DropitViewController.h */,
 				D02E47681D222FCF008D22F0 /* DropitViewController.m */,
 				D02E476A1D222FCF008D22F0 /* Main.storyboard */,
@@ -74,6 +72,8 @@
 		D02E47611D222FCF008D22F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D02E47641D222FCF008D22F0 /* DropitAppDelegate.h */,
+				D02E47651D222FCF008D22F0 /* DropitAppDelegate.m */,
 				D02E47621D222FCF008D22F0 /* main.m */,
 			);
 			name = "Supporting Files";
