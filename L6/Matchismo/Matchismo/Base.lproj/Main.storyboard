@@ -18,6 +18,7 @@
                     <connections>
                         <segue destination="Zw7-no-g4k" kind="relationship" relationship="viewControllers" id="knw-Id-Ft6"/>
                         <segue destination="3QC-PT-VKM" kind="relationship" relationship="viewControllers" id="ghT-o4-Wmm"/>
+                        <segue destination="Tvq-1A-4AW" kind="relationship" relationship="viewControllers" id="Fy0-Wg-jLf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfn-cr-7ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -856,6 +857,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoh-uN-HkL" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-16" y="692"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="bzq-e4-902">
+            <objects>
+                <viewController title="Results" id="Tvq-1A-4AW" customClass="GameResultsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R59-nt-klv"/>
+                        <viewControllerLayoutGuide type="bottom" id="JRx-8j-WtT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9V7-Vb-9tD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nkg-8s-G7U">
+                                <rect key="frame" x="0.0" y="20" width="320" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Results" id="s3L-MA-eeV"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="resultsTextView" destination="Nkg-8s-G7U" id="rHK-Kk-1hf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqX-Dc-B9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="1410"/>
         </scene>
     </scenes>
     <resources>
