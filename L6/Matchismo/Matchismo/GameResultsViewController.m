@@ -25,6 +25,24 @@
 	[self updateUI];
 }
 
+- (IBAction)sortByDate
+{
+	self.results = [self.results sortedArrayUsingSelector:@selector(compareDate:)];
+	[self updateUI];
+}
+
+- (IBAction)sortByScore
+{
+	self.results = [self.results sortedArrayUsingSelector:@selector(compareScore:)];
+	[self updateUI];
+}
+
+- (IBAction)sortByDuration
+{
+	self.results = [self.results sortedArrayUsingSelector:@selector(compareDuration:)];
+	[self updateUI];
+}
+
 - (void)updateUI
 {
 	NSString *resultsStrings = @"";
@@ -33,12 +51,8 @@
 	}
 	self.resultsTextView.text = resultsStrings;
 	
-	NSArray *sortedResults = [self.results sortedArrayUsingSelector:@selector(compareScore:)];
-	[self changeScore:[sortedResults firstObject] toColor:[UIColor greenColor]];
-	[self changeScore:[sortedResults lastObject] toColor:[UIColor redColor]];
-	sortedResults = [self.results sortedArrayUsingSelector:@selector(compareDuration:)];
-	[self changeScore:[sortedResults firstObject] toColor:[UIColor blueColor]];
-	[self changeScore:[sortedResults lastObject] toColor:[UIColor purpleColor]];
+	[self changeScore:[self.results firstObject] toColor:[UIColor redColor]];
+	[self changeScore:[self.results lastObject] toColor:[UIColor greenColor]];
 }
 
 - (void)changeScore:(GameResult *)gameResult toColor:(UIColor *)color
@@ -52,7 +66,7 @@
 	return [NSString stringWithFormat:@"%@: %d, (%@, %gs)\n",
 			gameResult.gameType,
 			gameResult.score,
-			[NSDateFormatter localizedStringFromDate:gameResult.end
+			[NSDateFormatter localizedStringFromDate:gameResult.start
 										   dateStyle:NSDateFormatterShortStyle
 										   timeStyle:NSDateFormatterShortStyle],
 			gameResult.duration];

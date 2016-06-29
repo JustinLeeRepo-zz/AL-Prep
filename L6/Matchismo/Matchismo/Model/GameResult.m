@@ -106,4 +106,9 @@
 	return [@(self.duration) compare:@(gameResult.duration)];
 }
 
+- (NSComparisonResult)compareDate:(GameResult *)gameResult
+{
+	return [self.start compare:gameResult.start];
+}
+
 @end
