@@ -32,6 +32,19 @@
 		resultsStrings = [resultsStrings stringByAppendingString:[self stringFromGameResult:result]];
 	}
 	self.resultsTextView.text = resultsStrings;
+	
+	NSArray *sortedResults = [self.results sortedArrayUsingSelector:@selector(compareScore:)];
+	[self changeScore:[sortedResults firstObject] toColor:[UIColor greenColor]];
+	[self changeScore:[sortedResults lastObject] toColor:[UIColor redColor]];
+	sortedResults = [self.results sortedArrayUsingSelector:@selector(compareDuration:)];
+	[self changeScore:[sortedResults firstObject] toColor:[UIColor blueColor]];
+	[self changeScore:[sortedResults lastObject] toColor:[UIColor purpleColor]];
+}
+
+- (void)changeScore:(GameResult *)gameResult toColor:(UIColor *)color
+{
+	NSRange range = [self.resultsTextView.text rangeOfString:[self stringFromGameResult:gameResult]];
+	[self.resultsTextView.textStorage addAttribute:NSForegroundColorAttributeName value:color range:range];
 }
 
 - (NSString *)stringFromGameResult:(GameResult *)gameResult
