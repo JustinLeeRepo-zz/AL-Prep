@@ -67,4 +67,43 @@
 	return self;
 }
 
+- (instancetype)initFromPropertyList:(id)propertyList
+{
+	self = [self init];
+	if (self) {
+		if ([propertyList isKindOfClass:[NSDictionary class]]) {
+			NSDictionary *pList = (NSDictionary *)propertyList;
+			_start = pList[START_KEY];
+			_end = pList[END_KEY];
+			_score = [pList[SCORE_KEY] intValue];
+			_gameType = pList[GAME_KEY];
+			if (!_start || !_end) self = nil;
+		}
+	}
+	return self;
+}
+
++ (NSArray *)allGameResults
+{
+	NSMutableArray *allGameResults = [[NSMutableArray alloc] init];
+	
+	for (id pList in [[[NSUserDefaults standardUserDefaults] dictionaryForKey:ALL_RESULTS_KEY] allValues]) {
+		GameResult *gameResult = [[GameResult alloc] initFromPropertyList:pList];
+		[allGameResults addObject:gameResult];
+		
+	}
+
+	return allGameResults;
+}
+
+- (NSComparisonResult)compareScore:(GameResult *)gameResult
+{
+	return [@(self.score) compare:@(gameResult.score)];
+}
+
+- (NSComparisonResult)compareDuration:(GameResult *)gameResult
+{
+	return [@(self.duration) compare:@(gameResult.duration)];
+}
+
 @end
