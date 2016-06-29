@@ -16,6 +16,7 @@
 @property (nonatomic) int score;
 @property (nonatomic, strong) NSString *gameType;
 
++ (NSArray *)allGameResults; //of GameResult(s)
 - (NSComparisonResult)compareScore:(GameResult *)gameResult;
 - (NSComparisonResult)compareDuration:(GameResult *)gameResult;
 

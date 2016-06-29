@@ -9,6 +9,7 @@
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
 #import "HistoryViewController.h"
+#import "GameResult.h"
 
 @interface CardGameViewController ()
 
@@ -20,10 +21,18 @@
 //@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
 @property (nonatomic, strong) NSMutableArray *flipHistory;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
+@property (nonatomic, strong) GameResult *gameResult;
 
 @end
 
 @implementation CardGameViewController
+
+- (GameResult *)gameResult
+{
+	if (!_gameResult) _gameResult = [[GameResult alloc] init];
+	_gameResult.gameType = self.gameType;
+	return _gameResult;
+}
 
 - (CardMatchingGame *)game
 {
@@ -60,6 +69,8 @@
 - (IBAction)touchReDealButton:(UIButton *)sender {
 	self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
 	self.flipHistory = nil;
+	self.game = nil;
+	self.gameResult = nil;
 	//Assignment 2 Task 4
 //	self.modeSegmentedControl.enabled = YES;
 	[self updateUI];
@@ -103,6 +114,7 @@
 	
 	[self.stateLabel setAttributedText:state];
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+	self.gameResult.score = self.game.score;
 	[self.flipHistory addObject:state];
 	[self setSliderRange];
 }

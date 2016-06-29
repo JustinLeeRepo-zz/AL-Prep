@@ -13,6 +13,8 @@
 
 @interface CardGameViewController : UIViewController
 
+@property (nonatomic, strong) NSString *gameType;
+
 - (void)updateUI;
 
 // protected
