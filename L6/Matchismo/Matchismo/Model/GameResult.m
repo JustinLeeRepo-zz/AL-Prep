@@ -25,10 +25,16 @@
 
 #pragma mark - Properties
 
+- (NSTimeInterval)duration
+{
+	return [self.end timeIntervalSinceDate:self.start];
+}
+
 - (void)setScore:(int)score
 {
 	_score = score;
 	self.end = [NSDate date];
+	[self synchronize];
 }
 
 - (id)asPropertyList
