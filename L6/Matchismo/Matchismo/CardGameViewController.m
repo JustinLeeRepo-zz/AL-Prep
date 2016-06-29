@@ -10,6 +10,7 @@
 #import "CardMatchingGame.h"
 #import "HistoryViewController.h"
 #import "GameResult.h"
+#import "GameSettings.h"
 
 @interface CardGameViewController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *flipHistory;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 @property (nonatomic, strong) GameResult *gameResult;
+@property (nonatomic, strong) GameSettings *gameSettings;
 
 @end
 
@@ -34,10 +36,19 @@
 	return _gameResult;
 }
 
+- (GameSettings *)gameSettings
+{
+	if (!_gameSettings) _gameSettings = [[GameSettings alloc] init];
+	return _gameSettings;
+}
+
 - (CardMatchingGame *)game
 {
 	if (!_game) {
 		_game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+		_game.matchBonus = self.gameSettings.matchBonus;
+		_game.mismatchPenalth = self.gameSettings.mismatchPenalth;
+		_game.chooseCost = self.gameSettings.chooseCost;
 	}
 	return _game;
 }

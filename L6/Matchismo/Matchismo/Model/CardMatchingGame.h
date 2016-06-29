@@ -17,6 +17,9 @@
 @property (nonatomic) NSInteger mode;
 @property (nonatomic, readonly) NSArray *lastChosenCards;
 @property (nonatomic, readonly) NSInteger lastScore;
+@property (nonatomic) int matchBonus;
+@property (nonatomic) int mismatchPenalth;
+@property (nonatomic) int chooseCost;
 
 //designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;

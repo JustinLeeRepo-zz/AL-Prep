@@ -57,9 +57,9 @@
 //#define MISMATCH_PENALTY 2
 
 //typed as int
-static const int MISMATCH_PENALTY = 2;
-static const int MATCH_BONUS = 4;
-static const int COST_TO_CHOOSE = 1;
+//static const int MISMATCH_PENALTY = 2;
+//static const int MATCH_BONUS = 4;
+//static const int COST_TO_CHOOSE = 1;
 
 - (Card *)cardAtIndex:(NSUInteger)index
 {
@@ -89,20 +89,20 @@ static const int COST_TO_CHOOSE = 1;
 					
 				int matchScore = [card match:chosenCards];
 				if (matchScore) {
-					self.lastScore += matchScore * MATCH_BONUS;
+					self.lastScore += matchScore * self.matchBonus;
 					card.matched = YES;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.matched = YES;
 					}
 				} else {
-					self.lastScore -= MISMATCH_PENALTY;
+					self.lastScore -= self.mismatchPenalth;
 					for (Card *chosenCard in chosenCards) {
 						chosenCard.chosen = NO;
 					}
 				}
 			}
 			
-			self.score += self.lastScore - COST_TO_CHOOSE;
+			self.score += self.lastScore - self.chooseCost;
 			card.chosen = YES;
 		}
 	}
