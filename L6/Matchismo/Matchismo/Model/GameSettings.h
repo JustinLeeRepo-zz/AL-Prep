@@ -10,4 +10,8 @@
 
 @interface GameSettings : NSObject
 
+@property (nonatomic) int matchBonus;
+@property (nonatomic) int mismatchPenalth;
+@property (nonatomic) int chooseCost;
+
 @end
