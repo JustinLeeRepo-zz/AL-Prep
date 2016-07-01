@@ -23,4 +23,20 @@
 	return _imageView;
 }
 
+- (UIImage *)image
+{
+	return self.imageView.image;
+}
+
+- (void)setImage:(UIImage *)image
+{
+	self.imageView.image = image;
+	[self.imageView sizeToFit];
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	[self.view addSubview:self.imageView];
+}
 @end
