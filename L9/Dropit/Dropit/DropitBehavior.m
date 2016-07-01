@@ -32,7 +32,6 @@
 	if (!_collider) {
 		_collider = [[UICollisionBehavior alloc] init];
 		_collider.translatesReferenceBoundsIntoBoundary = YES;
-		
 	}
 	return _collider;
 }
@@ -50,12 +49,14 @@
 {
 	[self.gravity addItem:item];
 	[self.collider addItem:item];
+	[self.animationOptions addItem:item];
 }
 
 - (void)removeItem:(id<UIDynamicItem>)item
 {
 	[self.gravity removeItem:item];
 	[self.collider removeItem:item];
+	[self.animationOptions addItem:item];
 }
 
 - (instancetype)init
