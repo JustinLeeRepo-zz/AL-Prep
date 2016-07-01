@@ -64,6 +64,7 @@
 	self = [super init];
 	[self addChildBehavior:self.gravity];
 	[self addChildBehavior:self.collider];
+	[self addChildBehavior:self.animationOptions];
 	return self;
 }
 
