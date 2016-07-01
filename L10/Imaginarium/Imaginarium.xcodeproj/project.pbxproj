@@ -13,6 +13,7 @@
 		D00CC7221D272A0F00A0AFE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00CC7201D272A0F00A0AFE2 /* Main.storyboard */; };
 		D00CC7241D272A0F00A0AFE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00CC7231D272A0F00A0AFE2 /* Assets.xcassets */; };
 		D00CC7271D272A0F00A0AFE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00CC7251D272A0F00A0AFE2 /* LaunchScreen.storyboard */; };
+		D00CC7301D272A9900A0AFE2 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CC72F1D272A9900A0AFE2 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D00CC7231D272A0F00A0AFE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D00CC7261D272A0F00A0AFE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D00CC7281D272A0F00A0AFE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D00CC72E1D272A9900A0AFE2 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		D00CC72F1D272A9900A0AFE2 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +61,11 @@
 		D00CC7161D272A0F00A0AFE2 /* Imaginarium */ = {
 			isa = PBXGroup;
 			children = (
-				D00CC71A1D272A0F00A0AFE2 /* AppDelegate.h */,
-				D00CC71B1D272A0F00A0AFE2 /* AppDelegate.m */,
 				D00CC71D1D272A0F00A0AFE2 /* ViewController.h */,
 				D00CC71E1D272A0F00A0AFE2 /* ViewController.m */,
 				D00CC7201D272A0F00A0AFE2 /* Main.storyboard */,
+				D00CC72E1D272A9900A0AFE2 /* ImageViewController.h */,
+				D00CC72F1D272A9900A0AFE2 /* ImageViewController.m */,
 				D00CC7231D272A0F00A0AFE2 /* Assets.xcassets */,
 				D00CC7251D272A0F00A0AFE2 /* LaunchScreen.storyboard */,
 				D00CC7281D272A0F00A0AFE2 /* Info.plist */,
@@ -74,6 +77,8 @@
 		D00CC7171D272A0F00A0AFE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D00CC71A1D272A0F00A0AFE2 /* AppDelegate.h */,
+				D00CC71B1D272A0F00A0AFE2 /* AppDelegate.m */,
 				D00CC7181D272A0F00A0AFE2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -152,6 +157,7 @@
 			files = (
 				D00CC71F1D272A0F00A0AFE2 /* ViewController.m in Sources */,
 				D00CC71C1D272A0F00A0AFE2 /* AppDelegate.m in Sources */,
+				D00CC7301D272A9900A0AFE2 /* ImageViewController.m in Sources */,
 				D00CC7191D272A0F00A0AFE2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
