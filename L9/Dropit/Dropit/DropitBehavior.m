@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UIGravityBehavior *gravity;
 @property (nonatomic, strong) UICollisionBehavior *collider;
+@property (nonatomic, strong) UIDynamicItemBehavior *animationOptions;
 
 @end
 
@@ -31,8 +32,18 @@
 	if (!_collider) {
 		_collider = [[UICollisionBehavior alloc] init];
 		_collider.translatesReferenceBoundsIntoBoundary = YES;
+		
 	}
 	return _collider;
+}
+
+- (UIDynamicItemBehavior *)animationOptions
+{
+	if (!_animationOptions) {
+		_animationOptions = [[UIDynamicItemBehavior alloc] init];
+		_animationOptions.allowsRotation = NO;
+	}
+	return _animationOptions;
 }
 
 - (void)addItem:(id<UIDynamicItem>)item
