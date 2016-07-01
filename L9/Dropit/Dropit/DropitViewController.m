@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) DropitBehavior *dropitBehavior;
-@property (nonatomic, strong) UIAttachmentBehavior *attchment;
+@property (nonatomic, strong) UIAttachmentBehavior *attachment;
 @property (nonatomic, strong) UIView *droppingView;
 
 @end
@@ -102,12 +102,17 @@ static const CGSize DROP_SIZE = { 40, 40 };
 {
 	CGPoint gesturePoint = [sender locationInView:self.gameView];
 	if (sender.state == UIGestureRecognizerStateBegan) {
-		
+		[self attachDroppingViewToPoint:gesturePoint];
 	} else if (sender.state == UIGestureRecognizerStateChanged) {
-		
+		self.attachment.anchorPoint = gesturePoint;
 	} else if (sender.state == UIGestureRecognizerStateEnded) {
-		
+		[self.animator removeBehavior:self.attachment];
 	}
+}
+
+- (void)attachDroppingViewToPoint:(CGPoint)anchorPoint
+{
+	
 }
 
 - (void)drop
