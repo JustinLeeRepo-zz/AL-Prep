@@ -98,6 +98,18 @@ static const CGSize DROP_SIZE = { 40, 40 };
 	[self drop];
 }
 
+- (IBAction)pan:(UIPanGestureRecognizer *)sender
+{
+	CGPoint gesturePoint = [sender locationInView:self.gameView];
+	if (sender.state == UIGestureRecognizerStateBegan) {
+		
+	} else if (sender.state == UIGestureRecognizerStateChanged) {
+		
+	} else if (sender.state == UIGestureRecognizerStateEnded) {
+		
+	}
+}
+
 - (void)drop
 {
 	CGRect frame;
