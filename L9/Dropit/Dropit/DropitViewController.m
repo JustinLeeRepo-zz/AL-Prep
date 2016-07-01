@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) DropitBehavior *dropitBehavior;
+@property (nonatomic, strong) UIAttachmentBehavior *attchment;
+@property (nonatomic, strong) UIView *droppingView;
 
 @end
 
@@ -108,6 +110,8 @@ static const CGSize DROP_SIZE = { 40, 40 };
 	dropView.backgroundColor = [self randomColor];
 	
 	[self.gameView addSubview:dropView];
+	
+	self.droppingView = dropView;
 	
 	[self.dropitBehavior addItem:dropView];
 	
