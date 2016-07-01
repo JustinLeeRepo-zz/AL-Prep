@@ -17,6 +17,15 @@
 
 @implementation ImageViewController
 
+- (void)setImageURL:(NSURL *)imageURL
+{
+	_imageURL = imageURL;
+	//dataWithContentsOfURL WILL BLOCK MAIN QUEUE
+	self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.imageURL]];
+	
+	
+}
+
 - (UIImageView *)imageView
 {
 	if (!_imageView) _imageView = [[UIImageView alloc] init];

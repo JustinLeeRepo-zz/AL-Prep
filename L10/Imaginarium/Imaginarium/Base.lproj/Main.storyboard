@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hAu-FM-vti">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ost-QE-zgE">
+            <objects>
+                <navigationController id="hAu-FM-vti" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j2V-z8-r9n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pCt-6R-ev3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fys-2V-alu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213" y="337"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -14,13 +31,68 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uph-E2-MmS">
+                                <rect key="frame" x="134" y="187" width="53" height="30"/>
+                                <state key="normal" title="Flowers"/>
+                                <connections>
+                                    <segue destination="YR5-eu-G6O" kind="show" identifier="photo_1" id="WWI-Wy-uU5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ul-N2-agy">
+                                <rect key="frame" x="132" y="263" width="57" height="30"/>
+                                <state key="normal" title="Jellyfish"/>
+                                <connections>
+                                    <segue destination="YR5-eu-G6O" kind="show" identifier="photo_3" id="8se-mg-CvK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-BG-wPt">
+                                <rect key="frame" x="132" y="225" width="57" height="30"/>
+                                <state key="normal" title="Peppers"/>
+                                <connections>
+                                    <segue destination="YR5-eu-G6O" kind="show" identifier="photo_2" id="d9s-Pq-ycl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eNb-BG-wPt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="11J-f6-Q6g"/>
+                            <constraint firstItem="2ul-N2-agy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Et-2Y-jUF"/>
+                            <constraint firstItem="eNb-BG-wPt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HZm-2X-fFq"/>
+                            <constraint firstItem="uph-E2-MmS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KzY-HB-jgW"/>
+                            <constraint firstItem="eNb-BG-wPt" firstAttribute="top" secondItem="uph-E2-MmS" secondAttribute="bottom" constant="8" id="nfU-bZ-zCf"/>
+                            <constraint firstItem="2ul-N2-agy" firstAttribute="top" secondItem="eNb-BG-wPt" secondAttribute="bottom" constant="8" id="tuM-yn-bDQ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4wn-wj-YFR"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="4uZ-xE-5Od">
+            <objects>
+                <viewController id="YR5-eu-G6O" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xaX-1I-1Cq"/>
+                        <viewControllerLayoutGuide type="bottom" id="NAk-ui-EzM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jWD-Yp-QTa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kP1-4z-XYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="337"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8se-mg-CvK"/>
+    </inferredMetricsTieBreakers>
 </document>
