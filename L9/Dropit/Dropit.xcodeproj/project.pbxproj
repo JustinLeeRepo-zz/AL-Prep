@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00CC70A1D26453F00A0AFE2 /* BezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CC7091D26453F00A0AFE2 /* BezierPathView.m */; };
 		D02E47631D222FCF008D22F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D02E47621D222FCF008D22F0 /* main.m */; };
 		D02E47661D222FCF008D22F0 /* DropitAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02E47651D222FCF008D22F0 /* DropitAppDelegate.m */; };
 		D02E47691D222FCF008D22F0 /* DropitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02E47681D222FCF008D22F0 /* DropitViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00CC7081D26453F00A0AFE2 /* BezierPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPathView.h; sourceTree = "<group>"; };
+		D00CC7091D26453F00A0AFE2 /* BezierPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPathView.m; sourceTree = "<group>"; };
 		D02E475E1D222FCF008D22F0 /* Dropit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dropit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02E47621D222FCF008D22F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D02E47641D222FCF008D22F0 /* DropitAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropitAppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 				D02E47781D2238C9008D22F0 /* DropitBehavior.h */,
 				D02E47791D2238C9008D22F0 /* DropitBehavior.m */,
 				D02E476A1D222FCF008D22F0 /* Main.storyboard */,
+				D00CC7081D26453F00A0AFE2 /* BezierPathView.h */,
+				D00CC7091D26453F00A0AFE2 /* BezierPathView.m */,
 				D02E476D1D222FCF008D22F0 /* Assets.xcassets */,
 				D02E476F1D222FCF008D22F0 /* LaunchScreen.storyboard */,
 				D02E47721D222FCF008D22F0 /* Info.plist */,
@@ -157,6 +162,7 @@
 			files = (
 				D02E47691D222FCF008D22F0 /* DropitViewController.m in Sources */,
 				D02E477A1D2238C9008D22F0 /* DropitBehavior.m in Sources */,
+				D00CC70A1D26453F00A0AFE2 /* BezierPathView.m in Sources */,
 				D02E47661D222FCF008D22F0 /* DropitAppDelegate.m in Sources */,
 				D02E47631D222FCF008D22F0 /* main.m in Sources */,
 			);
@@ -307,6 +313,7 @@
 				D02E47771D222FCF008D22F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
