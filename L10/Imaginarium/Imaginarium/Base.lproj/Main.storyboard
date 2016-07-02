@@ -87,23 +87,30 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-Nh-W0e">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="z7u-lv-dEL">
+                                <rect key="frame" x="142" y="221" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fRl-Nh-W0e" firstAttribute="top" secondItem="jWD-Yp-QTa" secondAttribute="top" id="4vZ-yH-0uc"/>
                             <constraint firstAttribute="trailing" secondItem="fRl-Nh-W0e" secondAttribute="trailing" id="5hm-cz-Grh"/>
+                            <constraint firstItem="z7u-lv-dEL" firstAttribute="centerX" secondItem="jWD-Yp-QTa" secondAttribute="centerX" id="NBW-3i-niV"/>
                             <constraint firstItem="fRl-Nh-W0e" firstAttribute="bottom" secondItem="NAk-ui-EzM" secondAttribute="top" id="Z6l-hl-u6Y"/>
+                            <constraint firstItem="z7u-lv-dEL" firstAttribute="centerY" secondItem="jWD-Yp-QTa" secondAttribute="centerY" id="cIo-Pq-amq"/>
                             <constraint firstItem="fRl-Nh-W0e" firstAttribute="leading" secondItem="jWD-Yp-QTa" secondAttribute="leading" id="hP9-Rd-Wdp"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="fRl-Nh-W0e" id="E5d-dq-Ujw"/>
+                        <outlet property="spinner" destination="z7u-lv-dEL" id="n9y-pb-Gf0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kP1-4z-XYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="337"/>
+            <point key="canvasLocation" x="1087" y="877"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

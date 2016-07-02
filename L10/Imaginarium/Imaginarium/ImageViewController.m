@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImage *image;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -44,6 +45,7 @@
 {
 	self.image = nil;
 	if (self.imageURL) {
+		[self.spinner startAnimating];
 		NSURLRequest *request = [NSURLRequest requestWithURL:self.imageURL];
 		NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
 		NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
@@ -86,6 +88,7 @@
 	self.imageView.image = image;
 	[self.imageView sizeToFit];
 	self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
+	[self.spinner stopAnimating];
 }
 
 - (void)viewDidLoad
