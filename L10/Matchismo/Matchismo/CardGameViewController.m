@@ -8,7 +8,6 @@
 
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
-#import "HistoryViewController.h"
 #import "GameResult.h"
 #import "GameSettings.h"
 
@@ -17,11 +16,7 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
-//Assignment 2 Task 4
-//@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentedControl;
-@property (nonatomic, strong) NSMutableArray *flipHistory;
-@property (weak, nonatomic) IBOutlet UISlider *historySlider;
+
 @property (nonatomic, strong) GameResult *gameResult;
 @property (nonatomic, strong) GameSettings *gameSettings;
 
@@ -53,33 +48,14 @@
 	return _game;
 }
 
-- (NSMutableArray *)flipHistory
-{
-	if (!_flipHistory) {
-		_flipHistory = [[NSMutableArray alloc] init];
-	}
-	return _flipHistory;
-}
-
 - (Deck *)createDeck //abstract
 {
 	return nil	;
-}
-- (IBAction)changeHistorySlider:(UISlider *)sender
-{
-	int sliderValue = lroundf(sender.value);
-	[sender setValue:sliderValue animated:NO];
-	if ([self.flipHistory count]) {
-		self.stateLabel.alpha = (sliderValue + 1 < [self.flipHistory count]) ? 0.5 : 1.0;
-		self.stateLabel.text = [self.flipHistory objectAtIndex:sliderValue];
-	}
-	
 }
 
 //Assignment 2 Task 2
 - (IBAction)touchReDealButton:(UIButton *)sender {
 	self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
-	self.flipHistory = nil;
 	self.game = nil;
 	self.gameResult = nil;
 	//Assignment 2 Task 4
@@ -87,12 +63,6 @@
 	[self updateUI];
 	
 }
-
-//Assignment 2 Task 3
-- (IBAction)gameModeChange:(UISegmentedControl *)sender {
-	self.game.mode = sender.selectedSegmentIndex;
-}
-
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
@@ -123,17 +93,8 @@
 		[state appendAttributedString:pointAttributedString];
 	}
 	
-	[self.stateLabel setAttributedText:state];
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
 	self.gameResult.score = self.game.score;
-	[self.flipHistory addObject:state];
-	[self setSliderRange];
-}
-
-- (void)setSliderRange
-{
-	self.historySlider.maximumValue = [self.flipHistory count] - 1;
-	[self.historySlider setValue:self.historySlider.maximumValue animated:YES];
 }
 
 - (NSAttributedString *)titleForCard:(Card *)card // abstract
@@ -144,16 +105,6 @@
 - (UIImage *)backgroundImageForCard:(Card *)card // abstract
 {
 	return nil;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-	if ([segue.identifier isEqualToString:@"Show History"]) {
-		if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
-			HistoryViewController *historyViewController = (HistoryViewController *)segue.destinationViewController;
-			historyViewController.historyArray = [self.flipHistory copy];
-		}
-	}
 }
 
 @end
